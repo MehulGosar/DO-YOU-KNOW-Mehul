@@ -1,142 +1,140 @@
-var readLineSync= require('readline-sync');
-const chalk = require('chalk')
+var readlinesync= require('readline-sync');
+const chalk = require('chalk');
+var name= readlinesync.question(chalk.bold('Please enter your name: '));
+var userScore =0; 
 
-var highestScorer = [{name: 'Naren', score: '2'}];
+var highestScorer = [{name: 'Naren', score: '1'}];
+
+function log(data){
+  console.log(data)
+}
 
 function highestScorerPrint(highestScorer){
-  log(chalk.bold.underline.yellow('\nHighest Scorers:'));
+  log(chalk.bold.underline('\nHighest Scorers:'));
   for (i= 0; i< highestScorer.length; i++){
    var highestScorerVar = highestScorer[i]
    log(chalk.bold('Name: ')+ highestScorerVar.name+ chalk.bold(' & Score: ')+ highestScorerVar.score); 
   }
 }
 
+log(chalk.bold('Hey '+ name+ '! Welcome to the game: \'DO YOU KNOW Mehul?\''));
+log(chalk.bold.underline('Note:')+' The rules are quite simple, answer the following questions about Mehul rightly to score the highest.');
 
-function log(data){
-  console.log(data)
+
+var queAnsPair1 = {
+question: 'Who\'s Mehul\'s favourite poet/ storyteller?',
+answer: 'Helly Shah',
+clue: 'Check for \'Iron man\'s daughter Poem\' on YouTube. (Also, subscribe her channel while at it.)'
+}
+var queAnsPair7 = {
+question: 'Who\'s Mehul\'s favourite heroin?',
+answer: 'Shraddha kapoor',
+clue: 'Daughter of Shakthi Kapoor is?'
+}
+var queAnsPair8 = {
+question: 'What\'s Mehul\'s favourite singer?',
+answer: 'Shreya Ghoshal',
+clue: 'Singer shares same Birth date as that of Mehul'
+}
+var queAnsPair4 = {
+question: 'What is the abbrevation of college Mehul did Engineering from?',
+answer: 'MCET',
+clue: 'Name of the college is Methodist College of Engineering and Technlogy.'
+}
+var queAnsPair5 = {
+question: 'Mehul was born in which city?',
+answer: 'Hyderabad',
+clue: 'City was also known as Bhagyanagar.'
+}
+var queAnsPair6 = {
+question: 'Was Mehul ever tested Positive for Covid: Yes or No?',
+answer: 'Yes',
+clue: ''
+}
+var queAnsPair2 = {
+question: 'What does Mehul like Poetry, Storytelling or Both?',
+answer: 'Both',
+clue: 'The correct answer is \'Both\''
+}
+var queAnsPair9 = {
+question: 'Does Mehul holds any kind- off World record: Yes or No?',
+answer: 'Yes',
+clue: 'Check for the book Orchard by Megha Shreya on Amazon.'
+}
+var queAnsPair3 = {
+question: 'Has Mehul ever won any award or medal for Martial arts: Yes or No?',
+answer: 'Yes',
+clue: 'Check Mehul\'s Facebook photos.'
+}
+var queAnsPair10 = {
+question: 'Growing up, Who was Mehul\'s favourite Super- hero?',
+answer: 'Spider-man',
+clue: 'The superhero is Amazing!'
 }
 
-var userName= readLineSync.question(chalk.bold("Please enter the your name: "));
-log(chalk.bold('\nHey '+userName + '! You have entered the game \'Memes- Show End Game!\''))
-log('\n'+chalk.bold.underline('Note')+': The rules are simple,answer trivia questions on the top memes and dialogues from Shows and score the highest!')
+var queAnsPair = [queAnsPair1, queAnsPair2, queAnsPair3, queAnsPair4, queAnsPair5, queAnsPair6, queAnsPair7, queAnsPair8, queAnsPair9, queAnsPair10] 
 
-quesAnsPair1= {
-  question: 'Tum to badhe _______ driver ho bhai!',
-  answer: 'heavy',
-  clue: 'Opposite of the word light.'
-}
-quesAnsPair2={
-  question: 'Yeh bik gayi hai _________!',
-  answer: 'Gormint',
-  clue: 'Govrerment',
-}
-quesAnsPair3={
-  question: 'Nikal l***e! Pehli ______ me nikal!',
-  answer: 'Fursat',
-  clue: 'Hindustani Bhau'
-}
-
-quesAnsPair4={
-  question: 'Toba Toba Toba saara ______ kharabh kardiya.',
-  answer: 'mood',
-  clue: 'Harmonium chacha'
-}
-
-quesAnsPair5={
-  question: '\'Ek dum se wakth badal diya, balat badal diya, jazbaat badal diye\' was meme orignated from which country?',
-  answer: 'Pakistan',
-  clue: 'Check on YouTube'
-}
-
-
-quesAnsPair6={
-  question: 'Sabh mar jayeinge, sirf ________ bachega.',
-  answer: 'Trivedi',
-  clue: 'Sacred Games'
-}
-
-quesAnsPair7={
-  question: '\'Chacha, O Bho**iwale Chacha. Thoda rest kar lijiye, warna rest in peace hojayenge\' is from the show?',
-  answer: 'Mirzapur',
-  clue: 'Munna Bhaiya'
-}
-
-quesAnsPair8={
-  question: 'The iconic dialogue \'That\'s my spot\' was said by which character in the show TBBT.',
-  answer: 'Sheldon Cooper',
-  clue: 'SC from The Big Bang Theory'
-}
-
-quesAnsPair9={
-  question: 'The iconic role of ACP Pradyuman on the show CID was played by?',
-  answer: 'Shivaji Satam',
-  clue: 'CID'
-}
-
-quesAnsPair10={
-  question: 'Who is Mr. Bean most close to?',
-  answer: 'Teddy',
-  clue: 'Brown Bear'
-}
-
-quesAnsPair= [quesAnsPair1, quesAnsPair8, quesAnsPair3, quesAnsPair6, quesAnsPair5, quesAnsPair9, quesAnsPair2, quesAnsPair7, quesAnsPair4, quesAnsPair10]
-
-function memeEndGame(qAndAPair, highestScorer){
-  var playGame = readLineSync.question('\nEnter '+chalk.bold(1)+': To enter the game, enter '+ chalk.bold(0)+': to Exit the game: ')
-  if(playGame==='1'){
-    var user_score = 0
-    var qap_len= qAndAPair.length
-
-    for(var i=0; i< qap_len; i++){
-      log(chalk.bold.yellow('\nQuestion '+ (i+1)+':' ))
-      var userAnswer = readLineSync.question(qAndAPair[i].question+chalk.bold.yellow('\nAnswer: '))
-      if (userAnswer.toUpperCase()=== qAndAPair[i].answer.toUpperCase()){
-        log('Congrations you have scored a point!')
-        user_score += 1
-      }
-      else{
-        log(chalk.bold.yellow('Your clue is: ')+  qAndAPair[i].clue)
-        var userAnswer = readLineSync.question(chalk.bold.yellow('Please enter the answer again: '))
-        if (userAnswer.toUpperCase()=== qAndAPair[i].answer.toUpperCase()){
-          log('Congrations you have scored half point!')
-          user_score += 0.5
-        } 
-        else {
-          if (i+1=== qap_len){
-            log('Wrong answer! The game ended.')
-          }
-          else{
-            log('Wrong answer! The next question is:')
-            continue;
-          }
-        }
-      
-      }
-    }
-      var hs_len= highestScorer.length
-      var hs_great =0
-      for (var j= 0; j<hs_len; j++){
-        if(highestScorer[j].score <= user_score){
-          log(chalk.bold.yellow('\nCongratulations, you have completed the game successfully and scored one of the highest. Your score is: '+ user_score))
-          hs_great=1;
-          break;
-        }
-      }
-        
-      if (hs_great!==1){
-        log(chalk.bold.yellow('\nCongratulations, you have completed the game successfully. Your score is: '+ user_score))
-      }
-    log(chalk.bold.magentaBright('Send the screenshot to Mehul, in order to update the highest scorer.'));
-  }
-  else if(playGame==='0'){
-    log(chalk.bold('Exiting the game!'))
-    process.exit(1)
+function playTheGame(question, answer, clue, i_val){
+  
+  var userAns1= readlinesync.question(chalk.bold(question)+' ');
+  
+  if (userAns1.toUpperCase() === answer.toUpperCase()){
+    userScore+=1;
+    log('Correct Answer! You gain a point. ');
   }
   else{
-    log('Please select between '+ chalk.bold (1)+' or '+ chalk.bold(0)+': ')
-    memeEndGame(quesAnsPair, highestScorer)
+    log(chalk.bold('Following is the Clue, Try again: '));
+    var userAns2= readlinesync.question(chalk.bold(clue)+chalk.bold('\nPlease answer the question again: '));
+      if (userAns2=== answer){
+        userScore+=0.5;
+        log('Correct answer! You gain half point.');
+      }
+      else if(i_val===9){
+            log('Wrong answer! The game ends here.');
+          }
+          else{
+            log('Wrong answer! The next question is:');
+          }
+      
   }
-
+  return userScore;
 }
-highestScorerPrint(highestScorer)
-memeEndGame(quesAnsPair, highestScorer)
+
+function enterGameMethod( highestScorer){
+  var enterGame= readlinesync.question('\nEnter \''+chalk.bold(1)+ '\' to '+ chalk.bold('play the game ')+ 'else enter \''+ chalk.bold(0)+ '\' '+ chalk.bold('to Exit: '));
+  var scoreUpdate = 0;
+  if(enterGame==='1'){
+    log(chalk.bold('Entered the game. Here\'re the question:' ));
+    qp_len= queAnsPair.length
+    log(qp_len)
+    for (var i= 0; i < qp_len; i++){
+      log(chalk.bold.yellow('\nQuesiton '+(i+1)+':' ))
+      indQueAnsPair=  queAnsPair[i];
+      scoreUpdate= playTheGame(indQueAnsPair.question, indQueAnsPair.answer, indQueAnsPair.clue, i)      
+    }
+    var hs_len= highestScorer.length
+    var hs_great =0
+    for (var j= 0; j<hs_len; j++){
+      if(highestScorer[j].score < scoreUpdate ){
+        log(chalk.bold('\nCongratulations, you have completed the game successfully and scored  one of the highest. Your score is: '+ scoreUpdate))
+        hs_great=1;
+        break;
+      }
+    }
+      
+    if (hs_great===0){
+      log(chalk.bold('\nCongratulations, you have completed the game successfully. Your score is: '+ scoreUpdate))
+    }
+    log(chalk.bold.magentaBright('Send the screenshot to Mehul, in order to update the highest scorer.'));
+  }
+  else if(enterGame==='0') {
+    log(chalk.bold('Exiting the game.'));
+    process.exit(1);
+  }
+  else{
+    log(chalk.bold('\nPlease choose between \'1\' or \'0\' '));
+    enterGameMethod(highestScorer);
+  }
+}
+highestScorerPrint(highestScorer);
+enterGameMethod(highestScorer);
