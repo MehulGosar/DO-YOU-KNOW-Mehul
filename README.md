@@ -1,1 +1,1 @@
-Answer some trivial questions about Mehul, score points and share your screenshot with Mehul. 
+Answer some trivial questions about Mehul, score points and share your screenshot with Mehul to gt yourself added in top scorer. 
